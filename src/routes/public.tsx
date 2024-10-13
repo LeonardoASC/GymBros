@@ -12,12 +12,18 @@ export function Public() {
         <Stack.Navigator
             initialRouteName="Presentation"
             screenOptions={{
-                headerShown: false,
+                headerShown: true,
+                // headerTransparent: true,
+                headerTitle: '',
+                headerTintColor: '#ffffff',
+                headerStyle: {
+                    backgroundColor: '#000',
+                }, 
             }}
         >
             <Stack.Screen name="Presentation" component={Presentation} />
-            <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register} />
+            <Stack.Screen name="Login" component={Login} />
         </Stack.Navigator>
     );
 }
