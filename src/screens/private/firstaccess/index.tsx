@@ -116,6 +116,9 @@ const styles = StyleSheet.create({
         height: 0.5,
         backgroundColor: '#a1a1a1',
         // marginVertical: 20,
+        width: '88%',
+        alignSelf: 'flex-end',
+        left: 5,
     },
     arrow: {
         marginLeft: 'auto',
