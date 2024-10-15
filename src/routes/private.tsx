@@ -1,7 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Login } from '../screens/public/login';
-import { Register } from '../screens/public/register';
+import { FirstAccess } from '../screens/private/firstaccess';
 
 const Stack = createStackNavigator();
 
@@ -9,13 +8,12 @@ const Stack = createStackNavigator();
 export function Private() {
     return (
         <Stack.Navigator
-            initialRouteName="Presentation"
+            initialRouteName="FirstAccess"
             screenOptions={{
                 headerShown: false,
             }}
         >
-            <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="Register" component={Register} />
+            <Stack.Screen name="FirstAccess" component={FirstAccess} />
         </Stack.Navigator>
     );
 }

@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React, { useContext } from 'react';
 
-// import { Private } from "./private";
+import { Private } from "./private";
 import { Public } from "./public";
 // import { AuthContext } from "../context/AuthContext";
 
@@ -21,7 +21,7 @@ export function Routes() {
             <Public />
             )
             } */}
-            <Public />
+            <Private/>
         </NavigationContainer>
     )
 }
