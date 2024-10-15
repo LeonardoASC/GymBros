@@ -1,26 +1,54 @@
-import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Platform } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Platform, Alert } from 'react-native';
+import { criarTabelaUsuarios, inserirUsuarioFicticio, validarLogin } from '../../../db/login';
 
 export function Login() {
+
+  const [email, setEmail] = useState<string>('');
+  const [senha, setSenha] = useState<string>('');
+
+  useEffect(() => {
+    const setupDatabase = async () => {
+      await criarTabelaUsuarios();
+      await inserirUsuarioFicticio();
+    };
+    setupDatabase();
+  }, []);
+
+  const handleLogin = async () => {
+    await validarLogin(email, senha, (valido: boolean) => {
+      if (valido) {
+        const token = 'token_ficticio_jwt'; 
+        Alert.alert("Login bem-sucedido", `Seu token: ${token}`);
+      } else {
+        Alert.alert("Erro", "E-mail ou senha incorretos");
+      }
+    });
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Fazer login</Text>
       <Text style={styles.subtitle}>Bem-vindo de volta.</Text>
       
       <TextInput 
+        style={styles.input} 
         placeholder="Email" 
         placeholderTextColor="#999" 
-        style={styles.input} 
         keyboardType="email-address"
+        value={email}
+        onChangeText={setEmail}
       />
       <TextInput 
+        style={styles.input} 
         placeholder="Senha" 
         placeholderTextColor="#999" 
-        style={styles.input} 
         secureTextEntry={true}
+        value={senha}
+        onChangeText={setSenha}
       />
 
-      <TouchableOpacity style={styles.loginButton}>
+      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>Fazer login</Text>
       </TouchableOpacity>
 

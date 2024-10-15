@@ -21,7 +21,9 @@ export function Routes() {
             <Public />
             )
             } */}
-            <Private/>
+            {/* <Private/> */}
+            <Public />
+
         </NavigationContainer>
     )
 }
