@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet, SafeAreaView, Image, TouchableOpacity, Platform } from "react-native";
 import logoGymBros from "../../../../assets/logo22.png";
 import { StackNavigationProp } from '@react-navigation/stack';
+import SvgComponent from "../../../../assets/svg/logo";
 
 type RootStackParamList = {
     Register: undefined;
@@ -17,7 +18,9 @@ export function Presentation({ navigation }: Props) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.logoContainer}>
-                <Image source={logoGymBros} style={styles.logo} />
+                {/* <Image source={logoGymBros} style={styles.logo} /> */}
+                <SvgComponent largura={250} altura={250}/>
+
                 <Text style={styles.title}>Bem-vindo ao <Text style={styles.appName}>GymBros</Text></Text>
             </View>
 
@@ -58,7 +61,6 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         color: '#fff',
-        marginTop: 20,
         fontFamily: Platform.select({ ios: 'MontserratRegular', android: 'MontserratRegular' } as any),
 
     },

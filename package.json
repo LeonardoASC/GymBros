@@ -22,6 +22,7 @@
     "react-native-screens": "3.31.1",
     "expo-splash-screen": "~0.27.6",
     "expo-image-picker": "~15.0.7",
+    "react-native-svg": "15.2.0",
     "expo-sqlite": "~14.0.6"
   },
   "devDependencies": {
